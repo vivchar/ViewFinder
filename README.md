@@ -3,7 +3,7 @@
 * No more need to create a ViewHolder in your project.
 
 ## Example 
-```
+```java
 public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
 
     @Override
@@ -36,7 +36,7 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
 To get this Library into your project:
 
 ### Step 1. Add the JitPack repository to your build file
-```
+```gradle
     allprojects {
         repositories {
             ...
@@ -45,7 +45,7 @@ To get this Library into your project:
     }
 ```
 ### Step 2. Add the dependency
-```
+```gradle
     dependencies {
         compile 'com.github.vivchar:ViewFinder:1.0.0'
     }
