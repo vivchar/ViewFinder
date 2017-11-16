@@ -1,6 +1,6 @@
 ## ViewFinder
-* Just use ViewFinder instead of any ViewHolder;
-* No more need to create a ViewHolder in your project;
+* Just use the ViewFinder instead of any ViewHolder;
+* No more need to create a ViewHolder in your project.
 
 ## Example 
 ```
