@@ -31,6 +31,25 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
 
 }
 ```
+## Gradle
+
+To get this Library into your project:
+
+### Step 1. Add the JitPack repository to your build file
+```
+    allprojects {
+        repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
+```
+### Step 2. Add the dependency
+```
+    dependencies {
+        compile 'com.github.vivchar:ViewFinder:1.0.0'
+    }
+```
 
 ## Try to use it too
 https://github.com/vivchar/RendererRecyclerViewAdapter
