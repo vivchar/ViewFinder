@@ -3,6 +3,8 @@
 * Just use the ViewFinder instead of any ViewHolder;
 * No more need to create a ViewHolder in your project.
 
+In few words: The ViewHolder has one function - to provide a link to the view in a layout. So when you use the RecyclerView and you need to add a new Type of Item in your list - you must create a new ViewHolder. It is fine when you have a few types. But it is not fine to create a new ViewHolder each time. With this library you no need create a ViewHolder each time. The ViewFinder as a universal ViewHolder. It can provide a link to anyone view.
+
 ## Example 
 ```java
 public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
