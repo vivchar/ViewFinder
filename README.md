@@ -15,7 +15,7 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
 
     @Override
     public ViewFinder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-        return new ViewFinder(LayoutInflater.from(mContext).inflate(R.layout.your_item, parent, false));
+        return new ViewFinder(LayoutInflater.from(mContext).inflate(getLayoutID(viewType), parent, false));
     }
 
     @Override
@@ -41,6 +41,16 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
             viewFinder.
                 .find(...)
                 .find(...);
+        }
+    }
+    
+    private int getLayoutID(int viewType) {
+        if (viewType == YOUR_TYPE) {
+            return R.layout.your_item;
+        } else if (...) {
+            return R.layout.other_item;
+        } else if (...) {
+            //...
         }
     }
 
