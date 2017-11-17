@@ -1,4 +1,4 @@
-# ViewFinder [![Release](https://jitpack.io/v/vivchar/ViewFinder.svg)](https://jitpack.io/vivchar/ViewFinder) [![API](https://img.shields.io/badge/API-14%2B-yellow.svg?style=flat)](https://android-arsenal.com/api?level=14) [![API](https://img.shields.io/badge/Size-4%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.vivchar%3AViewFinder%3A1.0.0)
+# ViewFinder [![Release](https://jitpack.io/v/vivchar/ViewFinder.svg)](https://jitpack.io/#vivchar/ViewFinder) [![API](https://img.shields.io/badge/API-14%2B-yellow.svg?style=flat)](https://android-arsenal.com/api?level=14) [![API](https://img.shields.io/badge/Size-4%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.vivchar%3AViewFinder%3A1.0.0)
 
 * Just use the ViewFinder instead of any ViewHolder;
 * No more need to create a ViewHolder in your project.
