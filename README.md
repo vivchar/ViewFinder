@@ -21,7 +21,7 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
     public void onBindViewHolder(final ViewFinder viewFinder, final int position) {
         final BaseItem item = mItems.get(position);
 
-        if (item instance of YourItem) {
+        if (item instanceof YourItem) {
             YourItem yourItem = (YourItem)item;
         
             final SwitchCompat switchCompat = viewFinder.find(R.id.item_switch);
@@ -34,7 +34,7 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
                     switchCompat.setChecked(!switchCompat.isChecked());
                     mListener.onItemClicked(yourItem);
                 }));
-        } else if (item instance of OtherItem) {
+        } else if (item instanceof OtherItem) {
             //No need to create new ViewHolder, you just use the ViewFinder again
             //See onCreateViewHolder() method, it has only one ViewHolder 
             viewFinder.
