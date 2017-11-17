@@ -14,18 +14,27 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
 
     @Override
     public void onBindViewHolder(final ViewFinder viewFinder, final int position) {
-        final YourItem item = mItems.get(position);
+        final BaseItem item = mItems.get(position);
 
-        final SwitchCompat switchCompat = viewFinder.find(R.id.item_switch);
+        if (item instance of YourItem) {
+            YourItem yourItem = (YourItem)item;
+        
+            final SwitchCompat switchCompat = viewFinder.find(R.id.item_switch);
 
-        viewFinder
-            .find(R.id.item_id, (ViewProvider<TextView>) view -> view.setText(String.valueOf(item.getID())))
-            .find(R.id.item_name, (ViewProvider<TextView>) view -> view.setText(item.getName()))
-            .find(R.id.item_logo, (ViewProvider<ImageView>) view -> view.setBackgroundResource(item.getLogoResource()))
-            .getRootView(view -> view.setOnClickListener(v -> {
-                switchCompat.setChecked(!switchCompat.isChecked());
-                mListener.onItemClicked(item);
-            }));
+            viewFinder
+                .find(R.id.item_id, (ViewProvider<TextView>) view -> view.setText(String.valueOf(yourItem.getID())))
+                .find(R.id.item_name, (ViewProvider<TextView>) view -> view.setText(yourItem.getName()))
+                .find(R.id.item_logo, (ViewProvider<ImageView>) view -> view.setBackgroundResource(yourItem.getLogoResource()))
+                .getRootView(view -> view.setOnClickListener(v -> {
+                    switchCompat.setChecked(!switchCompat.isChecked());
+                    mListener.onItemClicked(yourItem);
+                }));
+        } else if (item instance of OtherItem) {
+            //No need to create new ViewHolder, you just use the ViewFinder again, see onCreateViewHolder()
+            viewFinder.
+                .find(...)
+                .find(...);
+        }
     }
 
     //...
