@@ -1,7 +1,9 @@
 # ViewFinder [![Release](https://jitpack.io/v/vivchar/ViewFinder.svg)](https://jitpack.io/#vivchar/ViewFinder) [![API](https://img.shields.io/badge/API-14%2B-yellow.svg?style=flat)](https://android-arsenal.com/api?level=14) [![API](https://img.shields.io/badge/Size-4%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.vivchar%3AViewFinder%3A1.0.0)
 
 * Just use the ViewFinder instead of any ViewHolder;
-* No more need to create a ViewHolder in your project.
+* No more need to create a ViewHolder each time in your project;
+* The ViewFinder has the same features as a ViewHolder;
+* The ViewFinder can dynamically provide any link to any view.
 
 In few words: The ViewHolder has one function - to provide a link to the view in a layout. So when you use the RecyclerView and you need to add a new Type of Item in your list - you must create a new ViewHolder. It is fine when you have a few types. But it is not fine to create a new ViewHolder each time. With this library you no need create a ViewHolder each time. The ViewFinder as a universal ViewHolder. It can provide a link to anyone view.
 
