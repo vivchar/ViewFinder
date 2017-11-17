@@ -30,7 +30,8 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
                     mListener.onItemClicked(yourItem);
                 }));
         } else if (item instance of OtherItem) {
-            //No need to create new ViewHolder, you just use the ViewFinder again, see onCreateViewHolder()
+            //No need to create new ViewHolder, you just use the ViewFinder again
+            //See onCreateViewHolder() method, it has only one ViewHolder 
             viewFinder.
                 .find(...)
                 .find(...);
