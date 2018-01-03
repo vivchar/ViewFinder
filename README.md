@@ -11,7 +11,9 @@ But there is no need to create each time a new Holder. With this library you no 
 
 ## Example 
 ```java
-public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
+import com.github.vivchar.viewfinder.ViewHolder;
+
+public class YourAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public ViewFinder onCreateViewHolder(final ViewGroup parent, final int viewType) {
@@ -19,7 +21,7 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
     }
 
     @Override
-    public void onBindViewHolder(final ViewFinder viewHolder, final int position) {
+    public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         final BaseItem item = mItems.get(position);
 
         if (item instanceof YourItem) {
@@ -27,20 +29,23 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
         
             final SwitchCompat switchCompat = viewHolder.find(R.id.item_switch);
 
-            viewHolder
-                .find(R.id.item_id, (ViewProvider<TextView>) view -> view.setText(String.valueOf(yourItem.getID())))
-                .find(R.id.item_name, (ViewProvider<TextView>) view -> view.setText(yourItem.getName()))
-                .find(R.id.item_logo, (ViewProvider<ImageView>) view -> view.setBackgroundResource(yourItem.getLogoResource()))
-                .getRootView(view -> view.setOnClickListener(v -> {
+            viewHolder.getViewFinder()
+                .setText(R.id.item_id, String.valueOf(yourItem.getID()))
+                .setText(R.id.item_name, yourItem.getName())
+                .setTextColor(R.id.item_name, Color.BLACK)
+                .setBackgroundResource(R.id.item_logo, yourItem.getLogoResource())
+                .setOnClickListener(v -> {
                     switchCompat.setChecked(!switchCompat.isChecked());
                     mListener.onItemClicked(yourItem);
-                }));
+                }))
+                .find(R.id.custom_view, (ViewProvider<CustomView>) view -> { ... });
         } else if (item instanceof OtherItem) {
             //No need to create new ViewHolder, you just use the ViewFinder again
             //See onCreateViewHolder() method, it has only one ViewHolder 
-            viewHolder.
+            viewHolder.getViewFinder()
                 .find(...)
-                .find(...);
+                .setVisible(...)
+                .setText(...);
         }
     }
     
@@ -74,7 +79,7 @@ To get this Library into your project:
 ### Step 2. Add the dependency
 ```gradle
     dependencies {
-        compile 'com.github.vivchar:ViewFinder:1.0.0'
+        compile 'com.github.vivchar:ViewFinder:2.0.0'
     }
 ```
 
