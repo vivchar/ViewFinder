@@ -19,15 +19,15 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
     }
 
     @Override
-    public void onBindViewHolder(final ViewFinder viewFinder, final int position) {
+    public void onBindViewHolder(final ViewFinder viewHolder, final int position) {
         final BaseItem item = mItems.get(position);
 
         if (item instanceof YourItem) {
             YourItem yourItem = (YourItem)item;
         
-            final SwitchCompat switchCompat = viewFinder.find(R.id.item_switch);
+            final SwitchCompat switchCompat = viewHolder.find(R.id.item_switch);
 
-            viewFinder
+            viewHolder
                 .find(R.id.item_id, (ViewProvider<TextView>) view -> view.setText(String.valueOf(yourItem.getID())))
                 .find(R.id.item_name, (ViewProvider<TextView>) view -> view.setText(yourItem.getName()))
                 .find(R.id.item_logo, (ViewProvider<ImageView>) view -> view.setBackgroundResource(yourItem.getLogoResource()))
@@ -38,7 +38,7 @@ public class YourAdapter extends RecyclerView.Adapter<ViewFinder> {
         } else if (item instanceof OtherItem) {
             //No need to create new ViewHolder, you just use the ViewFinder again
             //See onCreateViewHolder() method, it has only one ViewHolder 
-            viewFinder.
+            viewHolder.
                 .find(...)
                 .find(...);
         }
