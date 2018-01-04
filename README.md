@@ -30,15 +30,15 @@ public class YourAdapter extends RecyclerView.Adapter<ViewHolder> {
             final SwitchCompat switchCompat = viewHolder.find(R.id.item_switch);
 
             viewHolder.getViewFinder()
-                .setText(R.id.item_id, String.valueOf(yourItem.getID()))
+                .find(R.id.custom_view, (ViewProvider<CustomView>) view -> {
+                    ... 
+                })
                 .setText(R.id.item_name, yourItem.getName())
-                .setTextColor(R.id.item_name, Color.BLACK)
                 .setBackgroundResource(R.id.item_logo, yourItem.getLogoResource())
                 .setOnClickListener(v -> {
                     switchCompat.setChecked(!switchCompat.isChecked());
                     mListener.onItemClicked(yourItem);
-                }))
-                .find(R.id.custom_view, (ViewProvider<CustomView>) view -> { ... });
+                }));
         } else if (item instanceof OtherItem) {
             //No need to create new ViewHolder, you just use the ViewFinder again
             //See onCreateViewHolder() method, it has only one ViewHolder 
